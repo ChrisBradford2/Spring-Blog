@@ -1,6 +1,6 @@
 # Spring-Blog
 
 ## Developpeur : 
-- Alexandre kramer
+- Alexandre Kramer
 - Nicolas Bararisi
 - Mathias Reine
