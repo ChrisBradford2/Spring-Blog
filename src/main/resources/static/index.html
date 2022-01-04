@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Title</h1>
+    <table>
+        <thead>
+        <th>storage</th>
+        <th>website_number</th>
+        <th>domains</th>
+        <th>price</th>
+        </thead>
+        <tbody>
+        <tr th:each="basic: ${basic}">
+            <td><span th:text="${basic.storage}"/></td>
+            <td><span th:text="${basic.website_number}"/></td>
+            <td><span th:text="${basic.domains}"/></td>
+            <td><a th:text="${basic.price}">See</a></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

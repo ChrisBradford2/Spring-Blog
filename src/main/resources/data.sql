@@ -1,6 +1,6 @@
 CREATE TABLE basic
 (
-    id             INT PRIMARY KEY,
+    id             INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     storage        VARCHAR(5),
     website_number INT(3),
     domains        INT(3),
@@ -10,7 +10,7 @@ CREATE TABLE basic
 
 CREATE TABLE pro
 (
-    id             INT PRIMARY KEY,
+    id             INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     storage        VARCHAR(5),
     website_number INT(3),
     domains        INT(3),
@@ -20,7 +20,7 @@ CREATE TABLE pro
 
 CREATE TABLE prenium
 (
-    id             INT PRIMARY KEY,
+    id             INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     storage        VARCHAR(5),
     website_number INT(3),
     domains        INT(3),
