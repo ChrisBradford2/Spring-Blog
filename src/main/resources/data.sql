@@ -1,32 +1,38 @@
-
-CREATE TABLE user(
-    id INT AUTO_INCREMENT  PRIMARY KEY,
-    username VARCHAR(250) NOT NULL,
-    password VARCHAR(250) NOT NULL,
-    email VARCHAR(250) NOT NULL
+CREATE TABLE basic
+(
+    id             INT PRIMARY KEY,
+    storage        VARCHAR(5),
+    website_number INT(3),
+    domains        INT(3),
+    support        VARCHAR(8),
+    price          INT(3)
 );
 
-CREATE TABLE category(
-    id INT AUTO_INCREMENT  PRIMARY KEY,
-    name VARCHAR(250) NOT NULL
+CREATE TABLE pro
+(
+    id             INT PRIMARY KEY,
+    storage        VARCHAR(5),
+    website_number INT(3),
+    domains        INT(3),
+    support        VARCHAR(8),
+    price          INT(3)
 );
 
-CREATE TABLE comment(
-    id INT AUTO_INCREMENT  PRIMARY KEY,
-    content varchar(250) NOT NULL,
-    date DATE NOT NULL,
-    user_id INT NOT NULL,
-    CONSTRAINT FK_USER_COMMENT FOREIGN KEY (user_id) REFERENCES user(id)
+CREATE TABLE prenium
+(
+    id             INT PRIMARY KEY,
+    storage        VARCHAR(5),
+    website_number INT(3),
+    domains        INT(3),
+    support        VARCHAR(8),
+    price          INT(3)
 );
 
-CREATE TABLE article(
-    id INT AUTO_INCREMENT  PRIMARY KEY,
-    date DATE NOT NULL,
-    content VARCHAR(250) NOT NULL,
-    category_id INT,
-    comment_id INT,
-    user_id INT,
-    CONSTRAINT FK_CATEGORY FOREIGN KEY (category_id) REFERENCES category(id),
-    CONSTRAINT FK_COMMENT FOREIGN KEY (comment_id) REFERENCES comment(id),
-    CONSTRAINT FK_USER_ARTICLE FOREIGN KEY (user_id) REFERENCES user(id)
-);
+INSERT INTO basic (storage, website_number, domains, support, price)
+VALUES ('10GB', 10, 10, 'Endless', 10);
+
+INSERT INTO pro (storage, website_number, domains, support, price)
+VALUES ('25GB', 25, 25, 'Endless', 25);
+
+INSERT INTO prenium (storage, website_number, domains, support, price)
+VALUES ('50GB', 50, 50, 'Endless', 50);
