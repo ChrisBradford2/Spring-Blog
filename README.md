@@ -13,11 +13,18 @@ https://spring-blog-client.herokuapp.com/
 - Java JDK 11
 - MySQL
 
+### Mysql
+
+- MySQL on localhost:3306
+- Credentials :
+  - username=root
+  - password=root
 
 ## Pourquoi React ?
 
 - Plus de simplicité
 - Plus adaptatif
+
 ## Installation
 
 Install Spring-blog with npm
@@ -25,6 +32,7 @@ Install Spring-blog with npm
 ```bash
   npm install
 ```
+
 ## Run Locally
 
 Start the server
@@ -33,7 +41,6 @@ Start the server
   npm run start
 ```
 
-
 ## Environment Variables
 
 - User : test
@@ -41,7 +48,6 @@ Start the server
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
 
 ## Authors
 
