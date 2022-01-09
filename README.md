@@ -1,4 +1,3 @@
-
 # Spring-blog
 
 Projet de fin de module en Développement API
@@ -45,6 +44,11 @@ Start the server
 
 - User : test
 - Password : test
+
+## Deploy
+
+Le site est accessible en ligne. Cependant il n'est pas fonctionnel suite à un problème d'importation de base de donnée.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
