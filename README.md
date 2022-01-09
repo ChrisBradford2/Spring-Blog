@@ -1,7 +1,7 @@
 
 # Spring-blog
 
-Description
+Projet de fin de module en Développement API
 
 ## Demo
 
