@@ -1,21 +1,59 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Spring-blog
 
-## Available Scripts
+Projet de fin de module en Développement API
 
-In the project directory, you can run:
+## Demo
 
+https://spring-blog-client.herokuapp.com/
 
+## Requirements
 
-### `npm install`
+- npm
+- Java JDK 11
+- MySQL
 
+### Mysql
 
+- MySQL on localhost:3306
+- Credentials :
+  - username=root
+  - password=root
 
-### `npm start`
+## Pourquoi React ?
 
+- Plus de simplicité
+- Plus adaptatif
 
-### Deployment
+## Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Install Spring-blog with npm
 
+```bash
+  npm install
+```
+
+## Run Locally
+
+Start the server
+
+```bash
+  npm run start
+```
+
+## Environment Variables
+
+- User : test
+- Password : test
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Authors
+
+- [@Nyftheart](https://github.com/Nyftheart)
+    - Alexandre Kramer
+- [@MathiasRime](https://github.com/MathiasRime)
+    - Mathias Reine
+- [@ChrisBradford2](https://github.com/ChrisBradford2)
+    - Nicolas Barbarisi
