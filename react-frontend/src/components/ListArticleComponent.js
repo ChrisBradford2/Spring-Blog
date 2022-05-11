@@ -47,16 +47,18 @@ const ListArticleComponent = () =>{
        return (
            <div className="container">
                <h2 className="text-center">List Article</h2>
-               <Link to="/Ajout-Article" className="btn btn-primary mb-2"> Ajout Article</Link>
+               <Link to="/Ajout-Article" className="btn btn-primary mb-2"> Add Article</Link>
                <Link to="/List" className="btn btn-info mb-2" style={{marginLeft: "10px"}}> List Catégorie</Link>
                <Link to="/logout" className="btn btn-info mb-2" style={{marginLeft: "10px"}}> Logout</Link>
                <table className="table table-bordered table-striped">
                    <thead>
                    <th>Article ID</th>
-                   <th>Article Auteur</th>
                    <th>Article Titre</th>
-                   <th>Article Contenu</th>
+                   <th>Article Image</th>
+                   <th>Article Auteur</th>
                    <th>Article Categorie</th>
+                   <th>Article Contenu</th>
+                   <th>Article Prix</th>
                    <th>Action</th>
                    </thead>
                    <tbody>
@@ -66,9 +68,11 @@ const ListArticleComponent = () =>{
                                <tr key={article.id}>
                                    <td>{article.id}</td>
                                    <td>{article.titre}</td>
-                                   <td>{article.auteur}</td>
+                                   <td>{article.image}</td>
+                                   <td>{localStorage.getItem("token")}</td>
                                    <td>{article.category}</td>
-                                   <td>{article.contenu}</td>
+                                   <td className="text-truncate" style={{maxWidth: "9rem"}}>{article.contenu}</td>
+                                   <td>{article.price} €</td>
                                    <td><Link className="btn btn-info" to={`/edit-article/${article.id}`}>Update</Link>
                                        <button className="btn btn-danger" onClick={() => deleteArticle(article.id)}
                                                style={{marginLeft: "10px"}}>Delete

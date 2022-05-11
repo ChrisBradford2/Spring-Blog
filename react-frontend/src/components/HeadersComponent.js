@@ -5,9 +5,12 @@ const HeadersComponent = () => {
         <div>
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <a href= "localhost:3000" className="navbar-brand">
-                        Articles
-                    </a>
+                    <div className="container">
+                        <a href= "localhost:3000" className="navbar-brand">
+                            Articles
+                        </a>
+                    </div>
+
                 </nav>
 
             </header>

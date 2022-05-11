@@ -54,7 +54,7 @@ const ListArticleComponent = () =>{
                                 <td>{article.auteur}</td>
                                 <td>{article.category}</td>
                                 <td>{article.contenu}</td>
-                                <td><Link className="btn btn-info" to={`/view/${article.id}`}>veiw</Link></td>
+                                <td><Link className="btn btn-info" to={`/view/${article.id}`}>View</Link></td>
                             </tr>
                     )
                 }
