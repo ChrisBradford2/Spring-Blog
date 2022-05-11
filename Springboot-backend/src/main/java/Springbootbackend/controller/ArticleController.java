@@ -46,6 +46,7 @@ public class ArticleController {
         updateArticle.setContenu(articleDetails.getContenu());
         updateArticle.setAuteur(articleDetails.getAuteur());
         updateArticle.setCategory(articleDetails.getCategory());
+        updateArticle.setPrice(articleDetails.getPrice());
 
         articleRepository.save(updateArticle);
         return  ResponseEntity.ok(updateArticle);
@@ -55,7 +56,7 @@ public class ArticleController {
     @DeleteMapping("{id}")
     public ResponseEntity<HttpStatus> deleteArticle(@PathVariable long id){
 
-        Article article = articleRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Article non trouver" + id));
+        Article article = articleRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Article non trouvé" + id));
         articleRepository.delete(article);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
