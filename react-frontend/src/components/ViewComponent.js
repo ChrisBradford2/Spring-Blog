@@ -5,7 +5,6 @@ import ArticleService from "../services/ArticleService";
 const  ViewComponent = () => {
 
     const [titre, setTitre] = useState('');
-    const [image, setImage] = useState('');
     const [contenu, setContenu] = useState('');
     const [auteur, setAuteur] = useState('')
     const [category, setCategory] = useState('')
@@ -13,12 +12,27 @@ const  ViewComponent = () => {
     const navigate = useNavigate();
     const {id} = useParams();
 
+    const [article, setArticle] = useState([])
 
+    useEffect(() => {
+
+        getAllArticle()
+
+    }, []);
+
+    const getAllArticle = () =>{
+        ArticleService.getAllArticle().then((response) => {
+            setArticle(response.data)
+            console.log(response.data);
+        }).catch(error =>{
+            console.log(error);
+        })
+    }
 
     const saveorupadeArticle = (e) => {
 
         e.preventDefault();
-        const article = {titre, image, contenu, auteur, category, price}
+        const article = {titre, contenu, auteur, category, price}
 
         if(id){
             ArticleService.updateArticle(id, article).then((response) => {
@@ -52,7 +66,6 @@ const  ViewComponent = () => {
     useEffect(() => {
         ArticleService.getArticleById(id).then((response) =>{
             setTitre(response.data.titre)
-            setImage(response.data.image)
             setContenu(response.data.contenu)
             setAuteur(response.data.auteur)
             setCategory(response.data.category)
@@ -84,36 +97,32 @@ const  ViewComponent = () => {
                         <div className="card-body">
                             <form>
                                 <div className="form-group mb-2">
-                                    <label className="form-label">Titre:</label>
+                                    <label className="form-label">Nom :</label>
                                     <p>{titre}</p>
                                 </div>
 
                                 <div className="form-group mb-2">
-                                    <label className="form-label">Image:</label>
-                                    <p>{image}</p>
-                                </div>
-
-                                <div className="form-group mb-2">
-                                    <label className="form-label">Contenu:</label>
+                                    <label className="form-label">Description :</label>
                                     <p>{contenu}</p>
                                 </div>
 
                                 <div className="form-group mb-2">
-                                    <label className="form-label">Auteur:</label>
+                                    <label className="form-label">Vendeur :</label>
                                     <p>{auteur}</p>
                                 </div>
 
                                 <div className="form-group mb-2">
-                                    <label className="form-label">Category:</label>
+                                    <label className="form-label">Catégorie :</label>
                                     <p>{category}</p>
                                 </div>
 
                                 <div className="form-group mb-2">
-                                    <label className="form-label">Prix:</label>
+                                    <label className="form-label">Prix :</label>
                                     <p>{price} €</p>
                                 </div>
 
-                                <Link to = "/" className="btn btn-danger">retour</Link>
+                                <Link to = {`/checkout/${article.id}`} className="btn btn-success">Ajouter au panier</Link>
+                                <Link to = "/" className="btn btn-danger">Retour</Link>
                             </form>
                         </div>
                     </div>

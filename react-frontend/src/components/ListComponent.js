@@ -34,7 +34,7 @@ const ListComponent = () =>{
                 {
                     article.map(
                         article =>
-                            <tr key={article.id}>>
+                            <tr key={article.id}>
                                 <td>{article.category}</td>
                             </tr>
                     )

@@ -33,27 +33,27 @@ const ListArticleComponent = () =>{
     return (
         <div className="container">
             <h2 className="text-center">List Article</h2>
-            <Link to="/List" className="btn btn-info mb-2" style={{marginLeft:"10px"}}> List Catégorie</Link>
-            <Link to="/login" className="btn btn-info mb-2" style={{marginLeft:"10px"}}> login</Link>
+            <Link to="/List" className="btn btn-info mb-2" style={{marginLeft:"10px"}}>List Catégorie</Link>
+            <Link to="/login" className="btn btn-info mb-2" style={{marginLeft:"10px"}}>Login</Link>
             <table className="table table-bordered table-striped">
                 <thead>
-                <th>Article ID</th>
-                <th>Article Auteur</th>
-                <th>Article Titre</th>
-                <th>Article Contenu</th>
-                <th>Article Categorie</th>
-                <th>Action</th>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Vendeur</th>
+                        <th>Description</th>
+                        <th>Categorie</th>
+                        <th>Action</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {
                     article.map(
                         article =>
                             <tr key={article.id}>
-                                <td>{article.id}</td>
                                 <td>{article.titre}</td>
                                 <td>{article.auteur}</td>
+                                <td className="text-truncate" style={{maxWidth: "9rem"}}>{article.contenu}</td>
                                 <td>{article.category}</td>
-                                <td>{article.contenu}</td>
                                 <td><Link className="btn btn-info" to={`/view/${article.id}`}>View</Link></td>
                             </tr>
                     )

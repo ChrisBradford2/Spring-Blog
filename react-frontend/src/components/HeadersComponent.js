@@ -7,7 +7,7 @@ const HeadersComponent = () => {
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                     <div className="container">
                         <a href= "localhost:3000" className="navbar-brand">
-                            Articles
+                            Acetyloxy
                         </a>
                     </div>
 

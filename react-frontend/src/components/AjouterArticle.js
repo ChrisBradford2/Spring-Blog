@@ -6,56 +6,12 @@ import $ from 'jquery';
 const  AjouterArticle = () => {
 
     const [titre, setTitre] = useState('');
-    const [image, setImage] = useState('')
     const [contenu, setContenu] = useState('');
     const [auteur, setAuteur] = useState('')
     const [category, setCategory] = useState('')
     const [price, setPrice] = useState('')
     const navigate = useNavigate();
     const {id} = useParams();
-
-    const saveorupadeArticle = (e) => {
-
-        e.preventDefault();
-        const article = {titre, image, contenu, auteur, category, price}
-
-        if(id){
-            ArticleService.updateArticle(id, article).then((response) => {
-                navigate('/article')
-            }).catch((error) => {
-                console.log(error);
-            })
-        }
-
-        else{
-
-            ArticleService.createArticle(article).then((response) => {
-
-                console.log(response.data)
-
-                navigate('/article');
-
-            }).catch(error => {
-                console.log(error)
-            })
-
-            console.log(article) // test console
-            }
-
-        }
-
-    useEffect(() => {
-        ArticleService.getArticleById(id).then((response) =>{
-            setTitre(response.data.titre)
-            setImage(response.data.image)
-            setContenu(response.data.contenu)
-            setAuteur(response.data.auteur)
-            setCategory(response.data.category)
-            setPrice(response.data.price)
-        }).catch(error => {
-            console.log(error)
-        })
-    }, []);
 
     $('textarea').on(function() {
     
@@ -96,6 +52,48 @@ const  AjouterArticle = () => {
             
       });
 
+    const saveorupadeArticle = (e) => {
+
+        e.preventDefault();
+        const article = {titre, contenu, auteur, category, price}
+
+        if(id){
+            ArticleService.updateArticle(id, article).then((response) => {
+                navigate('/article')
+            }).catch((error) => {
+                console.log(error);
+            })
+        }
+
+        else{
+
+            ArticleService.createArticle(article).then((response) => {
+
+                console.log(response.data)
+
+                navigate('/article');
+
+            }).catch(error => {
+                console.log(error)
+            })
+
+            console.log(article) // test console
+            }
+
+        }
+
+    useEffect(() => {
+        ArticleService.getArticleById(id).then((response) =>{
+            setTitre(response.data.titre)
+            setContenu(response.data.contenu)
+            setAuteur(response.data.auteur)
+            setCategory(response.data.category)
+            setPrice(response.data.price)
+        }).catch(error => {
+            console.log(error)
+        })
+    }, []);
+
 
    const title = () =>{
         if(id){
@@ -108,7 +106,7 @@ const  AjouterArticle = () => {
         return (
 
             <div>
-                <br/> <br/>
+                <br/><br/>
                 <div className="container">
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
@@ -132,19 +130,7 @@ const  AjouterArticle = () => {
                                     </div>
 
                                     <div className="form-group mb-2">
-                                    <label for="formFileMultiple" className="form-label">Image :</label>
-                                    <input
-                                        className="form-control"
-                                        type="file"
-                                        id="formFileMultiple"
-                                        multiple
-                                        accept=".jpg, .jpeg, .png"
-                                        value={image}
-                                        onChange={(e) => setImage(e.target.files[0])}/>
-                                    </div>
-
-                                    <div className="form-group mb-2">
-                                        <label for="exampleFormControlTextarea1" className="form-label">Contenu :</label>
+                                        <label htmlFor="exampleFormControlTextarea1" className="form-label">Contenu :</label>
                                         <textarea
                                             className="form-control"
                                             id="contenu" 
@@ -162,22 +148,26 @@ const  AjouterArticle = () => {
                                     </div>
 
                                     <div className="form-group mb-2">
-                                        <label className="form-label">Auteur:</label>
+                                        <label htmlFor="exampleDataList" className="form-label">Vendeur</label>
                                         <input
-                                            type="text"
-                                            placeholder="Auteur"
-                                            name="titre"
                                             className="form-control"
+                                            list="datalistOptions"
+                                            id="exampleDataList"
+                                            placeholder="Type to search..."
                                             required
-                                            readonly
-                                            value="admin"
-                                            onChange={(e) => setAuteur(localStorage.username)}
-                                        >
-                                        </input>
+                                            value={auteur}
+                                            onChange={(e) => setAuteur(e.target.value)}
+                                        />
+                                        <datalist id="datalistOptions">
+                                          <option value="Pscheisser" />
+                                          <option value="Modernouille" />
+                                          <option value="Astrozenecalme" />
+                                          <option value="Sanofric" />
+                                        </datalist>
                                     </div>
 
                                     <div className="form-group mb-2">
-                                        <label className="form-label">Category:</label>
+                                        <label className="form-label">Catégorie:</label>
                                         <select 
                                             className="form-select"
                                             aria-label="Default select example"
@@ -186,17 +176,16 @@ const  AjouterArticle = () => {
                                             onChange={(e) => setCategory(e.target.value)}
                                         >
                                             <option hidden defaultValue>Choose a category</option>
-                                            <option value="Cortisone">Cortisone</option>
-                                            <option value="Avocat">Avocat</option>
-                                            <option value="Bite">Bite</option>
+                                            <option value="Comprimé">Comprimé</option>
+                                            <option value="Gélule">Gélule</option>
+                                            <option value="Crème">Crème</option>
                                         </select>
                                     </div>
-
-                                    <div className="form-group mb-2">
-                                        <label className="form-label">Prix:</label>
+                                    <div>
+                                    <label className="form-label">Prix:</label>
+                                    <div class="input-group mb-2">
                                         <input
                                             type="number"
-                                            placeholder="Prix"
                                             step=".01"
                                             name="titre"
                                             className="form-control"
@@ -205,9 +194,11 @@ const  AjouterArticle = () => {
                                             onChange={(e) => setPrice(e.target.value)}
                                         >
                                         </input>
-                                        <div class="invalid-feedback">
+                                        <span class="input-group-text">€</span>
+                                        <div className="invalid-feedback">
                                             Please choose a price for your article.
                                         </div>
+                                    </div>
                                     </div>
 
                                     <button className="btn btn-success" onClick={(e) => saveorupadeArticle(e)}>

@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #adb5bd;
+  color: black;
+  text-align: center;
+  margin-top: .5rem;
+}
+
+.checkout-names {
+  margin-bottom: 1.5rem;
+}

@@ -45,21 +45,22 @@ const ListArticleComponent = () =>{
     //Log()
    if(localStorage.getItem("token") == "login"){
        return (
-           <div className="container">
+           <div style={{marginBottom: "3rem"}} className="container">
                <h2 className="text-center">List Article</h2>
-               <Link to="/Ajout-Article" className="btn btn-primary mb-2"> Add Article</Link>
-               <Link to="/List" className="btn btn-info mb-2" style={{marginLeft: "10px"}}> List Catégorie</Link>
-               <Link to="/logout" className="btn btn-info mb-2" style={{marginLeft: "10px"}}> Logout</Link>
+               <Link to="/Ajout-Article" className="btn btn-primary mb-2">Add Article</Link>
+               <Link to="/List" className="btn btn-info mb-2" style={{marginLeft: "10px"}}>List Catégorie</Link>
+               <Link to="/logout" className="btn btn-info mb-2" style={{marginLeft: "10px"}}>Logout</Link>
                <table className="table table-bordered table-striped">
                    <thead>
-                   <th>Article ID</th>
-                   <th>Article Titre</th>
-                   <th>Article Image</th>
-                   <th>Article Auteur</th>
-                   <th>Article Categorie</th>
-                   <th>Article Contenu</th>
-                   <th>Article Prix</th>
-                   <th>Action</th>
+                        <tr>
+                        <th>Article ID</th>
+                            <th>Nom</th>
+                            <th>Article Auteur</th>
+                            <th>Article Categorie</th>
+                            <th>Article Contenu</th>
+                            <th>Article Prix</th>
+                            <th>Action</th>
+                        </tr>
                    </thead>
                    <tbody>
                    {
@@ -68,7 +69,6 @@ const ListArticleComponent = () =>{
                                <tr key={article.id}>
                                    <td>{article.id}</td>
                                    <td>{article.titre}</td>
-                                   <td>{article.image}</td>
                                    <td>{localStorage.getItem("token")}</td>
                                    <td>{article.category}</td>
                                    <td className="text-truncate" style={{maxWidth: "9rem"}}>{article.contenu}</td>
@@ -87,12 +87,15 @@ const ListArticleComponent = () =>{
 
 
                <h2 className="text-center">List Commentaire</h2>
-               <Link to="/Ajout-Commentaire" className="btn btn-primary mb-2"> Ajout Commentaire</Link>
+               <Link to="/Ajout-Commentaire" className="btn btn-primary mb-2">Ajout Commentaire</Link>
                <table className="table table-bordered table-striped">
                    <thead>
-                   <th>Commentaire ID</th>
-                   <th>Commentaire Type</th>
-                   <th>Commentaire</th>
+                       <tr>
+                       <th>Commentaire ID</th>
+                        <th>Commentaire Type</th>
+                        <th>Commentaire</th>
+                       </tr>
+
                    </thead>
                    <tbody>
                    {

@@ -11,6 +11,7 @@ import ViewComponent from "./components/ViewComponent";
 import AjouterCommentaire from "./components/AjouterCommentaire";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
+import Checkout from "./components/Checkout";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/edit-article/:id" element = {<AjouterArticle />} />
                     <Route path="/list" element = {<ListComponent />} />
                     <Route path="/view/:id" element = {<ViewComponent />} />
+                    <Route path="/checkout/:id" element = {<Checkout />} />
                     <Route path="/Ajout-Commentaire" element = {<AjouterCommentaire />} />
                     <Route path="/login" element = {<Login />} />
                     <Route path="/logout" element = {<Logout />} />
